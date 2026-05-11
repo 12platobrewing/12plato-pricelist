@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Plato - Price List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #04818A;
+            --primary-amber: #ECA800;
+            --primary-blue: #006CB5;
+            --primary-red: #DD0008;
+            --bg-beige: #F5EFE6;
+            --text-dark: #2C2C2C;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-beige);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .geometric-header {
+            position: relative;
+            background: #FBF3D9;
+            padding: 60px 20px 40px;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-teal);
+        }
+
+        .geometric-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+        }
+
+        .circle-1 { width: 80px; height: 80px; border-radius: 50%; background: var(--primary-teal); top: 10px; left: 5%; }
+        .circle-2 { width: 60px; height: 60px; border-radius: 50%; background: var(--primary-blue); top: 15px; right: 8%; }
+        .circle-3 { width: 100px; height: 100px; border-radius: 50%; background: var(--primary-amber); top: 5px; left: 15%; }
+        .circle-4 { width: 70px; height: 70px; border-radius: 50%; background: var(--primary-teal); bottom: 15px; right: 12%; }
+        .circle-5 { width: 90px; height: 90px; border-radius: 50%; background: var(--primary-blue); bottom: 10px; left: 10%; }
+        .circle-6 { width: 50px; height: 50px; border-radius: 50%; background: var(--primary-amber); top: 60%; left: 3%; }
+        .circle-7 { width: 65px; height: 65px; border-radius: 50%; background: var(--primary-red); top: 30%; right: 5%; }
+
+        .triangle-1 { width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid var(--primary-red); top: 20px; left: 25%; }
+        .triangle-2 { width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-bottom: 60px solid var(--primary-amber); top: 10px; right: 20%; transform: rotate(30deg); }
+        .triangle-3 { width: 0; height: 0; border-left: 45px solid transparent; border-right: 45px solid transparent; border-bottom: 75px solid var(--primary-red); bottom: 20px; right: 25%; transform: rotate(180deg); }
+        .triangle-4 { width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 50px solid var(--primary-teal); bottom: 30px; left: 30%; }
+
+        .square-1 { width: 70px; height: 70px; background: var(--primary-amber); top: 30px; left: 40%; transform: rotate(15deg); }
+        .square-2 { width: 60px; height: 60px; background: var(--primary-teal); top: 15px; left: 55%; transform: rotate(-20deg); }
+        .square-3 { width: 80px; height: 80px; background: var(--primary-red); bottom: 25px; right: 40%; transform: rotate(25deg); }
+        .rect-1 { width: 90px; height: 50px; background: var(--primary-blue); top: 50px; right: 30%; transform: rotate(-15deg); }
+        .rect-2 { width: 70px; height: 40px; background: var(--primary-red); bottom: 35px; left: 45%; transform: rotate(20deg); }
+        .rect-3 { width: 100px; height: 55px; background: var(--primary-amber); top: 40%; right: 15%; transform: rotate(10deg); }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            padding-bottom: 120px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-download {
+            background: var(--primary-amber);
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #d69600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(236, 168, 0, 0.4);
+        }
+
+        .btn-reset {
+            background: var(--primary-red);
+            color: white;
+        }
+
+        .btn-reset:hover {
+            background: #b00006;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(221, 0, 8, 0.4);
+        }
+
+        .section-header {
+            background: #000;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            letter-spacing: 8px;
+            padding: 15px 30px;
+            margin: 40px 0 25px;
+            text-align: left;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .subsection-header {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-teal);
+            margin: 30px 0 20px;
+            padding-left: 10px;
+            border-left: 5px solid var(--primary-amber);
+        }
+
+        .seasonal-note {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 5px solid var(--primary-amber);
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: #856404;
+            box-shadow: 0 2px 8px rgba(236, 168, 0, 0.2);
+        }
+
+        .product-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .product-number {
+            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .num-amber { background: var(--primary-amber); }
+        .num-blue { background: var(--primary-blue); }
+        .num-red { background: var(--primary-red); }
+        .num-teal { background: var(--primary-teal); }
+
+        .product-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .product-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .product-name-letters {
+            display: inline-block;
+            letter-spacing: 0;
+        }
+
+        .product-name-letters span {
+            display: inline-block;
+            padding: 0 3px;
+            border-right: 2px solid #ccc;
+        }
+
+        .product-name-letters span:last-child {
+            border-right: none;
+        }
+
+        .product-details {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .abv {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .profile {
+            font-size: 0.85rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .style-tag {
+            display: inline-block;
+            background: var(--primary-amber);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .style-lager { background: #FFD834; color: #000; }
+        .style-amber-lager { background: #DF2027; }
+        .style-dark-lager { background: #3F1D06; }
+        .style-weizen { background: #EBA921; }
+        .style-belgian-wit { background: #EBA921; }
+        .style-stout { background: #341313; }
+        .style-porter { background: #341313; }
+        .style-pale-ale { background: #E38626; }
+        .style-ipa { background: #DB5729; }
+        .style-dipa { background: #DB5729; }
+        .style-non-alc { background: #00699E; }
+        .style-special { background: #6BBD45; }
+        .style-cider { background: #6BBD45; }
+        .style-mead { background: #CCFF33; color: #000; }
+
+        .product-price-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            min-width: 200px;
+        }
+
+        .price-display {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        .price-letters {
+            letter-spacing: 0;
+        }
+
+        .price-letters span {
+            display: inline-block;
+            padding: 0 4px;
+            border-right: 3px solid #ddd;
+        }
+
+        .price-letters span:last-child {
+            border-right: none;
+        }
+
+        .qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .qty-input {
+            width: 80px;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+        }
+
+        .qty-input:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        .subtotal {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-teal);
+            min-width: 100px;
+            text-align: right;
+        }
+
+        .total-section {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-top: 6px solid var(--primary-teal);
+            position: sticky;
+            bottom: 0;
+            z-index: 100;
+        }
+
+        .total-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .total-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            padding: 0;
+            border-bottom: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .total-row:last-child {
+            border-bottom: none;
+            font-weight: 900;
+            margin-top: 0;
+        }
+
+        .total-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .total-buttons .btn {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+
+        .total-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .total-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-teal);
+        }
+
+        .terms {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .terms h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .terms ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .terms li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .terms li:before {
+            content: "▪";
+            color: var(--primary-amber);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-info {
+            background: #000;
+            color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .contact-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            margin: 12px 0;
+            font-size: 1.15rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white;
+            }
+
+            .geometric-header {
+                page-break-after: avoid;
+            }
+
+            .total-section {
+                position: relative;
+                page-break-inside: avoid;
+            }
+
+            .product-item {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .geometric-header {
+                padding: 40px 15px 30px;
+            }
+
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .header-content p {
+                font-size: 1rem;
+            }
+
+            .section-header {
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+                padding: 12px 20px;
+            }
+
+            .product-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .product-price-section {
+                width: 100%;
+                align-items: flex-start;
+            }
+
+            .qty-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .total-buttons {
+                flex-direction: column;
+            }
+
+            .total-buttons .btn {
+                width: 100%;
+            }
+
+            .total-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .circle-1, .circle-3, .circle-5 { display: none; }
+            .triangle-2, .triangle-4 { display: none; }
+            .rect-2, .rect-3 { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="geometric-header">
+            <div class="geometric-shapes">
+                <div class="shape circle-1"></div>
+                <div class="shape circle-2"></div>
+                <div class="shape circle-3"></div>
+                <div class="shape circle-4"></div>
+                <div class="shape circle-5"></div>
+                <div class="shape circle-6"></div>
+                <div class="shape circle-7"></div>
+                
+                <div class="shape triangle-1"></div>
+                <div class="shape triangle-2"></div>
+                <div class="shape triangle-3"></div>
+                <div class="shape triangle-4"></div>
+                
+                <div class="shape square-1"></div>
+                <div class="shape square-2"></div>
+                <div class="shape square-3"></div>
+                <div class="shape rect-1"></div>
+                <div class="shape rect-2"></div>
+                <div class="shape rect-3"></div>
+            </div>
+            
+            <div class="header-content">
+                <h1>PRICE LIST</h1>
+                <p>Wholesale KEG 20L - ราคาขายส่ง KEG 20 ลิตร</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">YEAR ROUND</div>
+            <div id="yearRoundProducts"></div>
+
+
+            <div class="terms">
+                <h3>เงื่อนไขการสั่งซื้อ / Ordering Conditions</h3>
+                <ul>
+                    <li>ราคาต่อ KEG 20 ลิตร รวม VAT แล้ว / Price per 20L KEG, VAT included</li>
+                    <li>Lead time 1–2 วัน / Lead time 1–2 days</li>
+                </ul>
+
+                <div style="margin-top:28px;">
+                    <div style="background:#ECA800;color:#000;font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;padding:8px 18px;border-radius:5px;display:inline-block;margin-bottom:16px;">🟡 NEW CUSTOMER — ร้านค้าใหม่</div>
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:#2C2C2C;color:#fff;">
+                                <th style="padding:9px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;">Tier</th>
+                                <th style="padding:9px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;">เงื่อนไข</th>
+                                <th style="padding:9px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;">สิทธิ์ที่ได้รับ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;font-weight:700;color:#04818A;">Keg Trial</td>
+                                <td style="padding:10px 14px;">1 KEG</td>
+                                <td style="padding:10px 14px;">เครดิต 7 วัน</td>
+                            </tr>
+                            <tr style="background:#FAFAFA;border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;font-weight:700;color:#04818A;">Keg Value</td>
+                                <td style="padding:10px 14px;">2–4 KEGs</td>
+                                <td style="padding:10px 14px;">ส่งฟรี กทม. / ต่างจังหวัดลด ฿200 จากค่าส่ง</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;font-weight:700;color:#04818A;">Keg Best Deal</td>
+                                <td style="padding:10px 14px;">5+ KEGs</td>
+                                <td style="padding:10px 14px;">ส่งฟรีทั่วประเทศ + ติดต่อ Sale เพื่อรับข้อเสนอพิเศษ*</td>
+                            </tr>
+                            <tr style="background:#FFF8E7;border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;font-weight:700;color:#ECA800;">Upgrade to<br>KEY ACCOUNT</td>
+                                <td style="padding:10px 14px;">สั่งครบ 2 รอบ<br><span style="font-size:0.78rem;color:#888;">(ไม่จำกัดจำนวน KEG/รอบ)</span></td>
+                                <td style="padding:10px 14px;">เลื่อนสถานะเป็น Key Account — รับสิทธิ์เครดิต 15–30 วัน และสิทธิพิเศษทั้งหมด</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top:28px;">
+                    <div style="background:#006CB5;color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.8rem;letter-spacing:4px;text-transform:uppercase;padding:8px 18px;border-radius:5px;display:inline-block;margin-bottom:16px;">🔵 KEY ACCOUNT — ร้านค้าประจำ</div>
+                    <table style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                        <thead>
+                            <tr style="background:#2C2C2C;color:#fff;">
+                                <th style="padding:9px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;">Tier</th>
+                                <th style="padding:9px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;">เงื่อนไข</th>
+                                <th style="padding:9px 14px;text-align:left;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;">สิทธิ์ที่ได้รับ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;font-weight:700;color:#006CB5;" rowspan="2">Keg Standard</td>
+                                <td style="padding:10px 14px;">1 KEG</td>
+                                <td style="padding:10px 14px;">เครดิต 15 วัน</td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;">2 KEGs</td>
+                                <td style="padding:10px 14px;">เครดิต 30 วัน</td>
+                            </tr>
+                            <tr style="background:#FAFAFA;border-bottom:1px solid #F0F0F0;">
+                                <td style="padding:10px 14px;font-weight:700;color:#006CB5;">Keg Volume Deal</td>
+                                <td style="padding:10px 14px;">3–4 KEGs</td>
+                                <td style="padding:10px 14px;">ส่งฟรี กทม. / ต่างจังหวัดลด ฿200 จากค่าส่ง</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 14px;font-weight:700;color:#006CB5;">Keg Top Tier</td>
+                                <td style="padding:10px 14px;">5+ KEGs</td>
+                                <td style="padding:10px 14px;">ส่งฟรีทั่วประเทศ + Priority Allocation + ติดต่อ Sale เพื่อรับข้อเสนอพิเศษ*</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p style="margin-top:16px;font-size:0.78rem;color:#888;">* ข้อเสนอพิเศษต้องผ่านการ Approve ก่อนทุกครั้ง / Special pricing requires prior approval</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>ติดต่อสั่งซื้อ / Contact Us</h3>
+                <div class="contact-item"><strong>Facebook:</strong> 12plato</div>
+                <div class="contact-item"><strong>Tel:</strong> 08-863-95928</div>
+            </div>
+
+            <div class="footer-note">
+                12 Plato Brewing • Craft Beer Wholesale Price List
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const products = {
+            yearRound: [
+                {name: "Bangna Lager", abv: "5.0", profile: "Clean, malty, smooth — brewed in Bangna", style: "LAGER", price: 5000, color: "amber"},
+                {name: "Samutphakan Weizen", abv: "4.8", profile: "Banana & clove, medium body, high fizzy", style: "WEIZEN", price: 5100, color: "teal"},
+                {name: "Srinagarindra IPA", abv: "5.5", profile: "Citrusy & fruity hops, balanced bitterness", style: "IPA", price: 5800, color: "blue"},
+                {name: "Midcentury DIPA", abv: "7.7", profile: "Intense hops, juicy, strong bitterness", style: "DIPA", price: 6300, color: "red"}
+            ]
+        };
+
+        function formatWithSeparators(text) {
+            return text.split('').map(char => '<span>' + char + '</span>').join('');
+        }
+
+        function formatPrice(price) {
+            const priceStr = price.toLocaleString();
+            return formatWithSeparators(priceStr) + '<span>.</span><span>–</span>';
+        }
+
+        function getStyleClass(style) {
+            const styleMap = {
+                'LAGER': 'style-lager',
+                'AMBER LAGER': 'style-amber-lager',
+                'DARK LAGER': 'style-dark-lager',
+                'WEIZEN': 'style-weizen',
+                'BELGIAN WIT': 'style-belgian-wit',
+                'STOUT': 'style-stout',
+                'PORTER': 'style-porter',
+                'PALE ALE': 'style-pale-ale',
+                'IPA': 'style-ipa',
+                'DIPA': 'style-dipa',
+                'NON ALC': 'style-non-alc',
+                'SPECIAL': 'style-special',
+                'CIDER': 'style-cider',
+                'MEAD': 'style-mead'
+            };
+            return styleMap[style] || 'style-tag';
+        }
+
+        function createDropdownOptions() {
+            var options = '<option value="0">0</option>';
+            for (var i = 1; i <= 30; i++) {
+                options += '<option value="' + i + '">' + i + '</option>';
+            }
+            return options;
+        }
+
+        function renderProducts(containerId, productArray, startNum) {
+            const container = document.getElementById(containerId);
+            const dropdownOptions = createDropdownOptions();
+            
+            productArray.forEach(function(product, index) {
+                const num = startNum + index;
+                const id = containerId + '_' + index;
+                const styleClass = getStyleClass(product.style);
+                
+                const item = document.createElement('div');
+                item.className = 'product-item';
+                item.innerHTML = '<div class="product-number num-' + product.color + '">' + num + '</div>' +
+                    '<div class="product-info">' +
+                        '<div class="product-name">' +
+                            '<span class="product-name-letters">' + formatWithSeparators(product.name.toUpperCase()) + '</span>' +
+                        '</div>' +
+                        '<div class="product-details">' +
+                            '<span class="abv">ABV ' + product.abv + '%</span>' +
+                            '<span class="style-tag ' + styleClass + '">' + product.style + '</span>' +
+                            '<span class="profile">' + product.profile + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="product-price-section">' +
+                        '<div class="price-display">' +
+                            '<span class="price-letters">' + formatPrice(product.price) + '</span>' +
+                        '</div>' +
+                    '</div>';
+                container.appendChild(item);
+            });
+            return startNum + productArray.length;
+        }
+
+        function calculateTotal() {
+            var totalKegs = 0;
+            var grandTotal = 0;
+
+            var selects = document.querySelectorAll('.qty-input');
+            selects.forEach(function(select) {
+                var qty = parseInt(select.value) || 0;
+                var price = parseInt(select.dataset.price);
+                var subtotal = qty * price;
+                
+                totalKegs += qty;
+                grandTotal += subtotal;
+                
+                var subtotalElement = document.getElementById(select.id + '_subtotal');
+                subtotalElement.textContent = '฿' + subtotal.toLocaleString();
+            });
+
+            document.getElementById('totalKegs').textContent = totalKegs;
+            document.getElementById('grandTotal').textContent = '฿' + grandTotal.toLocaleString();
+        }
+
+        function resetCalculator() {
+            var selects = document.querySelectorAll('.qty-input');
+            selects.forEach(function(select) {
+                select.value = 0;
+            });
+            calculateTotal();
+        }
+
+        function printPDF() {
+            window.print();
+        }
+
+        var currentNum = 1;
+        document.addEventListener('DOMContentLoaded', function() {
+            currentNum = renderProducts('yearRoundProducts', products.yearRound, currentNum);
+            calculateTotal();
+        });
+    </script>
+</body>
+</html>
