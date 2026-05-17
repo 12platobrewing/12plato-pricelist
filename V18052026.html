@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Plato - Price List V2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-teal: #04818A;
+            --primary-amber: #ECA800;
+            --primary-blue: #006CB5;
+            --primary-red: #DD0008;
+            --bg-beige: #F5EFE6;
+            --text-dark: #2C2C2C;
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-beige); color: var(--text-dark); line-height: 1.6; }
+
+        /* Header */
+        .geometric-header { position: relative; background: #FBF3D9; padding: 60px 20px 40px; overflow: hidden; border-bottom: 5px solid var(--primary-teal); }
+        .geometric-shapes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.9; pointer-events: none; }
+        .shape { position: absolute; }
+        .circle-1 { width: 80px; height: 80px; border-radius: 50%; background: var(--primary-teal); top: 10px; left: 5%; }
+        .circle-2 { width: 60px; height: 60px; border-radius: 50%; background: var(--primary-blue); top: 15px; right: 8%; }
+        .circle-3 { width: 100px; height: 100px; border-radius: 50%; background: var(--primary-amber); top: 5px; left: 15%; }
+        .circle-4 { width: 70px; height: 70px; border-radius: 50%; background: var(--primary-teal); bottom: 15px; right: 12%; }
+        .circle-5 { width: 90px; height: 90px; border-radius: 50%; background: var(--primary-blue); bottom: 10px; left: 10%; }
+        .circle-6 { width: 50px; height: 50px; border-radius: 50%; background: var(--primary-amber); top: 60%; left: 3%; }
+        .circle-7 { width: 65px; height: 65px; border-radius: 50%; background: var(--primary-red); top: 30%; right: 5%; }
+        .triangle-1 { width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid var(--primary-red); top: 20px; left: 25%; }
+        .triangle-2 { width: 0; height: 0; border-left: 35px solid transparent; border-right: 35px solid transparent; border-bottom: 60px solid var(--primary-amber); top: 10px; right: 20%; transform: rotate(30deg); }
+        .triangle-3 { width: 0; height: 0; border-left: 45px solid transparent; border-right: 45px solid transparent; border-bottom: 75px solid var(--primary-red); bottom: 20px; right: 25%; transform: rotate(180deg); }
+        .triangle-4 { width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-bottom: 50px solid var(--primary-teal); bottom: 30px; left: 30%; }
+        .square-1 { width: 70px; height: 70px; background: var(--primary-amber); top: 30px; left: 40%; transform: rotate(15deg); }
+        .square-2 { width: 60px; height: 60px; background: var(--primary-teal); top: 15px; left: 55%; transform: rotate(-20deg); }
+        .square-3 { width: 80px; height: 80px; background: var(--primary-red); bottom: 25px; right: 40%; transform: rotate(25deg); }
+        .rect-1 { width: 90px; height: 50px; background: var(--primary-blue); top: 50px; right: 30%; transform: rotate(-15deg); }
+        .rect-2 { width: 70px; height: 40px; background: var(--primary-red); bottom: 35px; left: 45%; transform: rotate(20deg); }
+        .rect-3 { width: 100px; height: 55px; background: var(--primary-amber); top: 40%; right: 15%; transform: rotate(10deg); }
+        .header-content { position: relative; z-index: 10; text-align: center; }
+        .header-content h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 3.5rem; letter-spacing: 3px; margin-bottom: 10px; color: var(--text-dark); }
+        .header-content p { font-size: 1.3rem; color: #666; font-weight: 700; }
+
+        /* Layout */
+        .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px 80px; }
+        .section-header { background: #000; color: white; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; letter-spacing: 8px; padding: 15px 30px; margin: 40px 0 25px; text-align: left; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .subsection-header { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--primary-teal); margin: 30px 0 15px; padding-left: 12px; border-left: 5px solid var(--primary-amber); text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Product */
+        .product-item { background: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; display: flex; align-items: center; gap: 20px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform 0.2s ease; }
+        .product-item:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .product-number { flex-shrink: 0; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.2rem; color: white; }
+        .num-amber { background: var(--primary-amber); }
+        .num-blue { background: var(--primary-blue); }
+        .num-red { background: var(--primary-red); }
+        .num-teal { background: var(--primary-teal); }
+        .product-info { flex: 1; min-width: 0; }
+        .product-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 5px; color: var(--text-dark); }
+        .product-details { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+        .abv { font-size: 0.9rem; color: #666; font-weight: 500; }
+        .profile { font-size: 0.85rem; color: #888; font-style: italic; }
+        .style-tag { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 1px; color: white; }
+        .style-lager { background: #FFD834; color: #000; }
+        .style-weizen { background: #EBA921; }
+        .style-stout { background: #341313; }
+        .style-ipa { background: #DB5729; }
+        .style-dipa { background: #DB5729; }
+        .style-cider { background: #6BBD45; }
+        .style-sour { background: #E91E8C; }
+        .style-gose { background: #E91E8C; }
+        .style-mead { background: #CCFF33; color: #000; }
+        .product-price-section { display: flex; flex-direction: column; align-items: flex-end; min-width: 160px; }
+        .price-display { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--text-dark); }
+        .price-unit { font-size: 0.75rem; color: #999; margin-top: 2px; text-align: right; }
+
+        /* Stamp badge */
+        .stamp-badge { display: inline-block; background: var(--primary-red); color: white; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; text-transform: uppercase; }
+
+        /* Terms */
+        .terms { background: white; border-radius: 10px; padding: 30px; margin-top: 40px; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
+        .terms h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary-teal); margin-bottom: 16px; font-size: 1.3rem; letter-spacing: 2px; text-transform: uppercase; }
+        .terms ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+        .terms li { padding: 8px 0 8px 28px; position: relative; font-size: 0.92rem; border-bottom: 1px solid #F5F5F5; }
+        .terms li:last-child { border-bottom: none; }
+        .terms li:before { content: "▪"; color: var(--primary-amber); font-size: 1.3rem; position: absolute; left: 0; top: 6px; }
+        .tier-badge { display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; padding: 7px 18px; border-radius: 5px; margin-bottom: 14px; }
+        .tier-new { background: var(--primary-amber); color: #000; }
+        .tier-key { background: var(--primary-blue); color: #fff; }
+        .tier-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin-bottom: 8px; }
+        .tier-table thead tr { background: #2C2C2C; color: #fff; }
+        .tier-table th { padding: 9px 14px; text-align: left; font-family: 'Montserrat', sans-serif; font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        .tier-table td { padding: 10px 14px; border-bottom: 1px solid #F0F0F0; vertical-align: top; }
+        .tier-table tr:nth-child(even) { background: #FAFAFA; }
+        .tier-table tr.upgrade-row { background: #FFF8E7; }
+        .tier-name { font-weight: 700; }
+        .tier-name-new { color: var(--primary-teal); }
+        .tier-name-key { color: var(--primary-blue); }
+        .tier-name-upgrade { color: var(--primary-amber); }
+        .footnote { font-size: 0.76rem; color: #999; margin-top: 12px; }
+
+        /* Contact */
+        .contact-info { background: #000; color: white; border-radius: 10px; padding: 30px; margin-top: 30px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
+        .contact-info h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 16px; font-size: 1.4rem; letter-spacing: 2px; }
+        .contact-item { margin: 10px 0; font-size: 1.1rem; }
+        .footer-note { text-align: center; margin-top: 20px; padding: 15px; font-size: 0.88rem; color: #888; font-style: italic; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content h1 { font-size: 2.2rem; }
+            .section-header { font-size: 1.4rem; letter-spacing: 4px; padding: 12px 20px; }
+            .product-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .product-price-section { align-items: flex-start; }
+            .circle-1, .circle-3, .circle-5 { display: none; }
+            .triangle-2, .triangle-4 { display: none; }
+            .rect-2, .rect-3 { display: none; }
+        }
+        @media print {
+            body { background: white; }
+            .geometric-header { page-break-after: avoid; }
+            .product-item { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+<div class="geometric-header">
+    <div class="geometric-shapes">
+        <div class="shape circle-1"></div><div class="shape circle-2"></div><div class="shape circle-3"></div>
+        <div class="shape circle-4"></div><div class="shape circle-5"></div><div class="shape circle-6"></div><div class="shape circle-7"></div>
+        <div class="shape triangle-1"></div><div class="shape triangle-2"></div><div class="shape triangle-3"></div><div class="shape triangle-4"></div>
+        <div class="shape square-1"></div><div class="shape square-2"></div><div class="shape square-3"></div>
+        <div class="shape rect-1"></div><div class="shape rect-2"></div><div class="shape rect-3"></div>
+    </div>
+    <div class="header-content">
+        <h1>PRICE LIST</h1>
+        <p>Wholesale KEG 20L — ราคาขายส่ง KEG 20 ลิตร</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- YEAR ROUND -->
+    <div class="section-header">YEAR ROUND</div>
+    <div id="yearRoundProducts"></div>
+
+    <!-- SEASONAL -->
+    <div class="section-header">SEASONAL</div>
+
+    <div class="subsection-header">IPA / DIPA</div>
+    <div id="ipaProducts"></div>
+
+    <div class="subsection-header">STOUT</div>
+    <div id="stoutProducts"></div>
+
+    <div class="subsection-header">CIDER</div>
+    <div id="ciderProducts"></div>
+
+    <div class="subsection-header">SOUR / GOSE</div>
+    <div id="sourProducts"></div>
+
+    <div class="subsection-header">WEIZEN</div>
+    <div id="weizenProducts"></div>
+
+    <div class="subsection-header">MEAD <span style="font-size:0.75rem;font-weight:500;color:#999;letter-spacing:1px;text-transform:none;">— Fruit & Spice</span></div>
+    <div id="meadProducts"></div>
+
+    <!-- Terms -->
+    <div class="terms">
+        <h3>Ordering Conditions</h3>
+        <ul>
+            <li>ราคาต่อ KEG 20 ลิตร รวม VAT แล้ว / Price per 20L KEG, VAT included</li>
+            <li>Lead time 1–2 วัน / Lead time 1–2 days</li>
+        </ul>
+
+        <div style="margin-top:28px;">
+            <div class="tier-badge tier-new">NEW CUSTOMER — ร้านค้าใหม่</div>
+            <table class="tier-table">
+                <thead><tr><th>Tier</th><th>เงื่อนไข</th><th>สิทธิ์ที่ได้รับ</th></tr></thead>
+                <tbody>
+                    <tr><td class="tier-name tier-name-new">Keg Trial</td><td>1 KEG</td><td>เครดิต 7 วัน</td></tr>
+                    <tr><td class="tier-name tier-name-new">Keg Value</td><td>2–4 KEGs</td><td>ส่งฟรี กทม. / ต่างจังหวัดลด ฿200 จากค่าส่ง</td></tr>
+                    <tr><td class="tier-name tier-name-new">Keg Best Deal</td><td>5+ KEGs</td><td>ส่งฟรีทั่วประเทศ + ติดต่อ Sale เพื่อรับข้อเสนอพิเศษ*</td></tr>
+                    <tr class="upgrade-row"><td class="tier-name tier-name-upgrade">Upgrade to<br>KEY ACCOUNT</td><td>สั่งครบ 2 รอบ<br><span style="font-size:0.76rem;color:#999;">(ไม่จำกัดจำนวน KEG/รอบ)</span></td><td>เลื่อนสถานะเป็น Key Account — รับสิทธิ์เครดิต 15–30 วัน และสิทธิพิเศษทั้งหมด</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top:28px;">
+            <div class="tier-badge tier-key">KEY ACCOUNT — ร้านค้าประจำ</div>
+            <table class="tier-table">
+                <thead><tr><th>Tier</th><th>เงื่อนไข</th><th>สิทธิ์ที่ได้รับ</th></tr></thead>
+                <tbody>
+                    <tr><td class="tier-name tier-name-key" rowspan="2">Keg Standard</td><td>1 KEG</td><td>เครดิต 15 วัน</td></tr>
+                    <tr><td>2 KEGs</td><td>เครดิต 30 วัน</td></tr>
+                    <tr><td class="tier-name tier-name-key">Keg Volume Deal</td><td>3–4 KEGs</td><td>ส่งฟรี กทม. / ต่างจังหวัดลด ฿200 จากค่าส่ง</td></tr>
+                    <tr><td class="tier-name tier-name-key">Keg Top Tier</td><td>5+ KEGs</td><td>ส่งฟรีทั่วประเทศ + Priority Allocation + ติดต่อ Sale เพื่อรับข้อเสนอพิเศษ*</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="footnote">* ข้อเสนอพิเศษต้องผ่านการ Approve ก่อนทุกครั้ง / Special pricing requires prior approval</p>
+    </div>
+
+    <div class="contact-info">
+        <h3>ติดต่อสั่งซื้อ / Contact Us</h3>
+        <div class="contact-item"><strong>Facebook:</strong> 12plato</div>
+        <div class="contact-item"><strong>Tel:</strong> 08-863-95928</div>
+    </div>
+
+    <div class="footer-note">12 Plato Brewing • Craft Beer Wholesale Price List</div>
+    <div style="text-align:center;padding:6px 0 30px;font-size:0.75rem;color:#bbb;font-family:'Montserrat',sans-serif;letter-spacing:2px;">V2 &nbsp;|&nbsp; Created 18 May 2026</div>
+</div>
+
+<script>
+const products = {
+    yearRound: [
+        {name: "Bangna Lager", abv: "5.0", profile: "Clean, malty, smooth — brewed in Bangna", style: "LAGER", price: 5300, color: "amber"}
+    ],
+    ipa: [
+        {name: "Ceylon Tea IPA", abv: "6.0", profile: "Ceylon tea aroma, citrusy hop, dry finish", style: "IPA", price: 5800, color: "blue"},
+        {name: "Mango Sticky Rice IPA", abv: "6.5", profile: "Mango sticky rice inspired, tropical & sweet", style: "IPA", price: 5800, color: "amber"}
+    ],
+    stout: [
+        {name: "Stout v.1", abv: "5.0", profile: "Roasted malt, coffee, dry finish", style: "STOUT", price: 5800, color: "teal"},
+        {name: "Stout Truffle", abv: "5.0", profile: "Truffle-infused stout, rich dark malt", style: "STOUT", price: 5800, color: "blue"}
+    ],
+    cider: [
+        {name: "Sprite Up Cider", abv: "5.0", profile: "Crisp citrus cider, light & refreshing", style: "CIDER", price: 6300, color: "teal"},
+        {name: "Purple Oasis Cider", abv: "5.0", profile: "Berry grape, smooth sweet finish", style: "CIDER", price: 6300, color: "red"}
+    ],
+    sour: [
+        {name: "PP Berries Sour", abv: "5.0", profile: "Mixed berries, tart & fruity", style: "SOUR", price: 6300, color: "amber"},
+        {name: "Fire Guava Gose", abv: "5.0", profile: "Guava with a spicy kick, salt-sour balance", style: "GOSE", price: 6300, color: "blue"}
+    ],
+    weizen: [
+        {name: "Peach Blossom Weizen", abv: "5.0", profile: "Peach floral aroma, banana & clove base", style: "WEIZEN", price: 5300, color: "red"}
+    ],
+    mead: [
+        {name: "Elder Meadew", abv: "4.8", profile: "Elderflower honey mead, floral & light", style: "MEAD", price: 5900, color: "teal", unit: "18L"},
+        {name: "BB 10K Miles Away", abv: "4.8", profile: "Honey mead, smooth & complex", style: "MEAD", price: 5900, color: "amber", award: "🥉 Bronze Award — BrewAsia 2025", unit: "18L"},
+        {name: "Oolong Rosemary", abv: "4.8", profile: "Oolong tea & rosemary, aromatic finish", style: "MEAD", price: 5900, color: "blue", unit: "18L"}
+    ]
+};
+
+const styleMap = {
+    'LAGER': 'style-lager', 'WEIZEN': 'style-weizen', 'STOUT': 'style-stout',
+    'IPA': 'style-ipa', 'DIPA': 'style-dipa', 'CIDER': 'style-cider',
+    'SOUR': 'style-sour', 'GOSE': 'style-gose', 'MEAD': 'style-mead'
+};
+
+function renderProducts(containerId, arr, startNum) {
+    const container = document.getElementById(containerId);
+    if (!container) return startNum;
+    arr.forEach(function(p, i) {
+        const num = startNum + i;
+        const styleClass = styleMap[p.style] || 'style-tag';
+        const abvDisplay = p.abv === '–' ? '<span class="abv">ABV TBC</span>' : '<span class="abv">ABV ' + p.abv + '%</span>';
+        const awardBadge = p.award ? '<span style="display:inline-block;margin-left:10px;background:#CD7F32;color:#fff;font-family:\'Montserrat\',sans-serif;font-weight:700;font-size:0.62rem;letter-spacing:1px;padding:3px 10px;border-radius:3px;text-transform:uppercase;">' + p.award + '</span>' : '';
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.innerHTML =
+            '<div class="product-number num-' + p.color + '">' + num + '</div>' +
+            '<div class="product-info">' +
+                '<div class="product-name">' + p.name.toUpperCase() + awardBadge + '</div>' +
+                '<div class="product-details">' +
+                    abvDisplay +
+                    '<span class="style-tag ' + styleClass + '">' + p.style + '</span>' +
+                    '<span class="profile">' + p.profile + '</span>' +
+                '</div>' +
+            '</div>' +
+            '<div class="product-price-section">' +
+                '<div class="price-display">฿' + p.price.toLocaleString() + '.-</div>' +
+                '<div class="price-unit">per KEG ' + (p.unit || '20L') + '</div>' +
+            '</div>';
+        container.appendChild(div);
+    });
+    return startNum + arr.length;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let n = 1;
+    n = renderProducts('yearRoundProducts', products.yearRound, n);
+    n = renderProducts('ipaProducts', products.ipa, n);
+    n = renderProducts('stoutProducts', products.stout, n);
+    n = renderProducts('ciderProducts', products.cider, n);
+    n = renderProducts('sourProducts', products.sour, n);
+    n = renderProducts('weizenProducts', products.weizen, n);
+    n = renderProducts('meadProducts', products.mead, n);
+});
+</script>
+</body>
+</html>
