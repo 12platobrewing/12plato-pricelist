@@ -1,0 +1,258 @@
+<title>12 Plato KEG Price List</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+Thai+Looped:wght@300;400;500;700&display=swap">
+<style>
+/* Layout: mobile-first single column, tap-board rows; cream brand band on top, real photo, sticky filter. Tokens from the 12 Plato design system (2026). */
+:root{
+  --surface:#ffffff; --panel:#fbf4e3; --cream:#faeac6; --ink:#231f20; --ink-soft:#5c5350; --line:#eadfc6;
+  --plato-yellow:#eca800; --plato-red:#dd0008; --plato-blue:#006cb5; --plato-teal:#04818a; --deep-teal:#012729;
+  --on-brand:#ffffff;
+  --tap-lager:#e8a211; --tap-pale:#dd700a; --tap-ipa:#d94a04; --tap-cider:#ce3a22; --tap-lowalc:#f03d60;
+  --tap-stout:#1c1412; --tap-nonalc:#2b70c1; --tap-kombucha:#2d8693;
+  --font-display:"Montserrat","Noto Sans Thai Looped",system-ui,sans-serif;
+  --font-board:"Barlow Condensed","Noto Sans Thai Looped","Arial Narrow",sans-serif;
+  --font-thai:"Noto Sans Thai Looped","Montserrat",system-ui,sans-serif;
+  --stout-chip:#1c1412; --contact-bg:#231f20;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --surface:#231f20; --panel:#2e2a22; --cream:#2e2a22; --ink:#ffffff; --ink-soft:#c9bfb4; --line:#45403a;
+  --stout-chip:#4a3a35; --contact-bg:#012729; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --surface:#231f20; --panel:#2e2a22; --cream:#2e2a22; --ink:#ffffff; --ink-soft:#c9bfb4; --line:#45403a;
+  --stout-chip:#4a3a35; --contact-bg:#012729; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--surface);color:var(--ink);font-family:var(--font-thai);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Brand band */
+.band{background:#faeac6;color:#231f20;position:relative;overflow:hidden}
+.band .wrap{padding-block:28px 24px;position:relative;z-index:1;display:grid;gap:14px}
+.logo{height:36px;width:auto;display:block}
+.logo-dark{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo-light{display:none}:root:not([data-theme="light"]) .logo-dark{display:block}}
+:root[data-theme="dark"] .logo-light{display:none}:root[data-theme="dark"] .logo-dark{display:block}
+.kicker{font-family:var(--font-board);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:14px;color:#b5000a;margin:0}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1.02;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.th-sub{font-family:var(--font-thai);font-weight:700;font-size:17px;margin:0;color:inherit}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:#5c5350;margin:0}
+.shape{position:absolute;z-index:0;pointer-events:none}
+.s1{width:46px;height:46px;border-radius:50%;background:var(--plato-teal);right:-10px;top:22px}
+.s2{width:30px;height:30px;background:var(--plato-yellow);right:44px;top:86px;transform:rotate(18deg)}
+.s3{width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:28px solid var(--plato-red);right:16px;bottom:22px;transform:rotate(-12deg)}
+.s4{width:22px;height:22px;border-radius:50%;background:var(--plato-blue);right:84px;top:30px}
+
+.hero{position:relative;width:100%;max-width:100%;aspect-ratio:4/3;overflow:hidden;background:#c70e14}
+.hero img{position:absolute;left:50%;top:50%;height:160%;width:auto;max-width:none;transform:translate(-50%,-50%)}
+
+/* Summary strip */
+.strip{background:var(--contact-bg);color:#fff}
+.strip .wrap{padding-block:12px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-family:var(--font-board);font-weight:600;font-size:16px;letter-spacing:.03em}
+.strip .sep{color:var(--plato-yellow)}
+.strip b{color:var(--plato-yellow);font-weight:700}
+.strip .ast{color:var(--plato-yellow);text-decoration:none;font-weight:700;padding:0 4px}
+.strip .ast:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.terms{scroll-margin-top:12px}
+html{scroll-behavior:smooth}
+
+/* Price tiers */
+.tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:22px}
+.tier{background:var(--panel);border-radius:10px;padding:12px 10px;display:grid;gap:2px;min-width:0}
+.tier b{font-family:var(--font-board);font-weight:700;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.tier span{font-size:12px;color:var(--ink-soft);line-height:1.35}
+
+/* Filter */
+.filter{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);margin-top:20px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font-family:var(--font-board);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.chip:focus-visible{outline:2px solid var(--plato-teal);outline-offset:2px}
+
+/* Sections */
+.sec{margin-top:26px}
+.sec-head{font-family:var(--font-board);font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--surface);display:inline-block;padding:3px 12px;margin:0}
+.sub{font-family:var(--font-board);font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:20px 0 4px;display:flex;align-items:center;gap:10px}
+.sub::after{content:"";flex:1;height:1px;background:var(--line)}
+.note{background:var(--panel);border-radius:10px;padding:10px 12px;font-size:13.5px;margin:12px 0 0;color:var(--ink)}
+
+/* Rows */
+.list{list-style:none;margin:0;padding:0}
+.row{display:grid;grid-template-columns:44px 1fr auto;gap:4px 12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.no{grid-row:span 2;width:44px;height:44px;display:grid;place-items:center;font-family:var(--font-board);font-weight:700;font-size:22px;color:#fff;border-radius:6px;font-variant-numeric:tabular-nums}
+.name{font-family:var(--font-board);font-weight:700;font-size:21px;line-height:1.1;letter-spacing:.03em;text-transform:uppercase;min-width:0}
+.price{font-family:var(--font-board);font-weight:700;font-size:24px;line-height:1;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price small{font-size:15px;font-weight:600}
+.det{grid-column:2 / 4;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;min-width:0}
+.tag{font-family:var(--font-board);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:2px 8px;border-radius:3px}
+.abv{font-family:var(--font-board);font-weight:600;font-size:15px;font-variant-numeric:tabular-nums}
+.prof{font-size:13px;color:var(--ink-soft);flex-basis:100%}
+.c-lager{background:var(--tap-lager);color:#231f20} .c-pale{background:var(--tap-pale)} .c-ipa{background:var(--tap-ipa)}
+.c-cider{background:var(--tap-cider)} .c-lowalc{background:var(--tap-lowalc)} .c-stout{background:var(--stout-chip)}
+.c-nonalc{background:var(--tap-nonalc)} .c-kombucha{background:var(--tap-kombucha)}
+
+/* Terms + contact */
+.terms{margin-top:34px;background:var(--panel);border-radius:12px;padding:18px 16px}
+.terms h2,.contact h2{font-family:var(--font-board);font-weight:700;font-size:20px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 8px}
+.terms ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.tier-head{font-family:var(--font-board);font-weight:700;font-size:17px;letter-spacing:.06em;margin:20px 0 8px;display:flex;align-items:center;gap:8px}
+.dot{width:12px;height:12px;border-radius:50%;flex:0 0 auto}
+.dot-new{background:var(--plato-yellow)} .dot-key{background:var(--plato-blue)}
+.tbl-wrap{overflow-x:auto;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.45}
+.tbl th{font-family:var(--font-board);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:13px;text-align:left;color:var(--ink-soft);padding:8px 10px;border-bottom:1px solid var(--line)}
+.tbl td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:first-child{font-family:var(--font-board);font-weight:700;font-size:15px;letter-spacing:.03em}
+.tbl td:nth-child(2){font-variant-numeric:tabular-nums}
+.tbl tr.up td{background:var(--panel)}
+.fn{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+.desc{grid-column:2 / 4;font-size:14px;line-height:1.65;margin:6px 0 0;min-width:0}
+.desc p{margin:0}
+.desc h4{font-family:var(--font-board);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.desc ul{margin:0;padding-left:18px;display:grid;gap:2px}
+.th-name{font-family:var(--font-thai);font-weight:500;font-size:15px;text-transform:none;letter-spacing:0}
+.contact{margin-top:16px;background:var(--contact-bg);color:#fff;border-radius:12px;padding:20px 16px;display:grid;gap:12px}
+.contact .logo{height:28px}
+.c-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.c-line .lbl{font-family:var(--font-board);letter-spacing:.1em;text-transform:uppercase;color:#d9cfc4;font-size:14px;min-width:70px}
+.c-line .val{font-family:var(--font-board);font-weight:700;font-size:24px;letter-spacing:.03em;user-select:all}
+.c-line a{color:#fff}
+.copy{font:inherit;font-family:var(--font-board);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;background:var(--plato-yellow);color:#231f20;border:0;border-radius:999px;padding:6px 16px;min-height:44px;cursor:pointer}
+.copy:focus-visible{outline:2px solid #fff;outline-offset:2px}
+footer{padding-block:18px 32px;font-size:12.5px;color:var(--ink-soft);text-align:center}
+.empty{padding:24px 0;color:var(--ink-soft);font-size:14px}
+@media (max-width:599px){
+  .tbl-wrap{border:0;background:transparent;overflow:visible;border-radius:0}
+  .tbl thead{display:none}
+  .tbl,.tbl tbody{display:grid;gap:8px}
+  .tbl tr{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .tbl td{padding:0;border:0}
+  .tbl td:first-child{font-size:17px}
+  .tbl td:nth-child(2){font-family:var(--font-board);font-weight:700;font-size:16px;text-align:right;white-space:nowrap}
+  .tbl td:nth-child(3){grid-column:1 / -1;font-size:14px}
+  .tbl tr.up{background:var(--cream);border-color:var(--plato-yellow)}
+  .tbl tr.up td{background:transparent}
+  .tbl tr.up td:nth-child(2){white-space:normal;text-align:left;grid-column:1 / -1;font-size:14px;font-family:var(--font-thai);font-weight:500}
+}
+@media (min-width:600px){.prof{flex-basis:auto}.row{grid-template-columns:48px 1fr auto}.no{width:48px;height:48px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<header class="band">
+  <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span><span class="shape s4"></span>
+  <div class="wrap">
+    <img class="logo" src="logo.svg" alt="12 Plato">
+    <p class="kicker">Wholesale · KEG 20L (Type A)</p>
+    <h1>Price List</h1>
+    <p class="th-sub">ราคาขายส่ง KEG 20 ลิตร (Type A)</p>
+    <p class="meta"><span>ราคารวม VAT แล้ว</span><span>Lead time 1–2 วัน</span><span>อัปเดต 21 ต.ค. 2026</span></p>
+  </div>
+</header>
+<div class="hero"><img src="hero-kombucha-red.jpg" alt="เครื่องดื่มในแก้ว 12 Plato บนพื้นสีแดง"></div>
+<div class="strip" aria-label="สรุปเงื่อนไข"><div class="wrap">
+  <span>เริ่ม <b>1 KEG</b></span><span class="sep" aria-hidden="true">·</span>
+  <span>เครดิต <b>7–30 วัน</b></span><span class="sep" aria-hidden="true">·</span>
+  <span>ส่งฟรี กทม. ตั้งแต่ <b>2 KEG</b><a class="ast" href="#terms" aria-label="ดูเงื่อนไขส่งฟรีในตาราง">*</a></span>
+</div></div>
+
+<main class="wrap">
+
+  <div id="menu"></div>
+
+  <section class="terms" id="terms" aria-labelledby="t-h">
+    <h2 id="t-h">เงื่อนไขการสั่งซื้อ / Ordering Conditions</h2>
+    <ul>
+      <li>ราคาต่อ KEG 20 ลิตร (Type A) รวม VAT แล้ว / Price per 20L KEG (Type A), VAT included</li>
+      <li>Lead time 1–2 วัน / Lead time 1–2 days</li>
+    </ul>
+
+    <h3 class="tier-head"><span class="dot dot-new"></span>NEW CUSTOMER — ร้านค้าใหม่</h3>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>Tier</th><th>เงื่อนไข</th><th>สิทธิ์ที่ได้รับ</th></tr></thead>
+      <tbody>
+        <tr><td>Keg Trial</td><td>1 KEG</td><td>เครดิต 7 วัน</td></tr>
+        <tr><td>Keg Value</td><td>2–4 KEGs</td><td>ส่งฟรี กทม. / ต่างจังหวัดลด ฿200 จากค่าส่ง</td></tr>
+        <tr><td>Keg Best Deal</td><td>5+ KEGs</td><td>ส่งฟรีทั่วประเทศ + ติดต่อ Sale เพื่อรับข้อเสนอพิเศษ*</td></tr>
+        <tr class="up"><td>Upgrade to KEY ACCOUNT</td><td>สั่งครบ 2 รอบ (ไม่จำกัดจำนวน KEG/รอบ)</td><td>เลื่อนสถานะเป็น Key Account — รับสิทธิ์เครดิต 15–30 วัน และสิทธิพิเศษทั้งหมด</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="tier-head"><span class="dot dot-key"></span>KEY ACCOUNT — ร้านค้าประจำ</h3>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>Tier</th><th>เงื่อนไข</th><th>สิทธิ์ที่ได้รับ</th></tr></thead>
+      <tbody>
+        <tr><td>Keg Standard</td><td>1 KEG</td><td>เครดิต 15 วัน</td></tr>
+        <tr><td>Keg Standard</td><td>2 KEGs</td><td>เครดิต 30 วัน</td></tr>
+        <tr><td>Keg Volume Deal</td><td>3–4 KEGs</td><td>ส่งฟรี กทม. / ต่างจังหวัดลด ฿200 จากค่าส่ง</td></tr>
+        <tr><td>Keg Top Tier</td><td>5+ KEGs</td><td>ส่งฟรีทั่วประเทศ + Priority Allocation + ติดต่อ Sale เพื่อรับข้อเสนอพิเศษ*</td></tr>
+      </tbody>
+    </table></div>
+    <p class="fn">* ข้อเสนอพิเศษต้องผ่านการ Approve ก่อนทุกครั้ง / Special pricing requires prior approval</p>
+  </section>
+
+  <section class="contact" aria-labelledby="c-h">
+    <img class="logo" src="logo-white.svg" alt="12 Plato">
+    <h2 id="c-h">สั่งซื้อ / Contact</h2>
+    <div class="c-line"><span class="lbl">Tel</span><span class="val" id="tel">08-863-95928</span><button class="copy" id="copy-tel" type="button">คัดลอก</button></div>
+    <div class="c-line"><span class="lbl">Facebook</span><a class="val" href="https://www.facebook.com/12plato" target="_blank" rel="noopener">12plato</a></div>
+  </section>
+</main>
+<footer class="wrap">12 Plato Brewing · Craft Beer Wholesale Price List</footer>
+
+<script>
+var DESC={
+ "Thai Tea":{th:"ชาไทย",p:"มิติใหม่ของคราฟต์เบียร์สายฮ็อป! นำชาไทยแท้ชงสดมา Infuse เข้ากับ IPA รสเข้ม เติมความนุ่มนวลด้วย Lactose ให้สัมผัส Creamy นุ่มละมุน รสชาติหอมชาไทย เข้มข้น กลมกล่อมอย่างลงตัว",
+  b:["IPA : เบียร์ที่โดดเด่นด้วยคาแรกเตอร์ของฮ็อป ซึ่งให้กลิ่นหอมและรสขมเป็นเอกลักษณ์","Thai Tea IPA: ผสานกลิ่นหอมของชาไทยเข้ากับ IPA พร้อม Lactose ที่ช่วยเพิ่มเนื้อสัมผัส Creamy นุ่มละมุน สร้างความแตกต่างจาก IPA ทั่วไป"]},
+ "Hyperboost":{p:"เป็นเวสต์โคสต์ ไอพีเอ ที่ยกระดับความเข้มข้นไปอีกขั้นด้วยนวัตกรรม hop แบบใหม่ Citra & Simcoe Hyperboost อัดแน่นด้วยกลิ่นรสแนว citrus และ pine สไตล์คลาสสิก มอบรสชาติที่สะอาด คมชัด และขมปลายแบบฉบับเวสต์โคสต์แท้ๆ"},
+ "All Eyes On Me":{p:"เป็น Hazy IPA ที่โดดเด่นด้วยเนื้อสัมผัสขุ่นเนียนนุ่มละมุนจากโอ๊ตในสัดส่วน 20% ผสานเข้ากับฮอปส์ตัวชูโรงอย่าง Dolcita ที่รรให้กลิ่นรสสไตล์ Pina Colada หอมกลิ่นมะพร้าวชัดเจน เคล้าด้วยความหวานฉ่ำของพีชและผลไม้เมืองร้อน มอบประสบการณ์การดื่มที่สดชื่น ละมุนลิ้น และหอมฟุ้งในทุกจิบ"},
+ "Yok Sod":{th:"หยกสด",p:"ความลงตัวสุดคลาสสิกของเบียร์ลาเกอร์ รังสรรค์ด้วยน้ำสกัดใบเตยหอมนวลและน้ำมะพร้าวสด ถอดรหัสรสสัมผัสหอมนุ่มกลมกล่อมจาก “ขนมเปียกปูนมะพร้าวอ่อน” ให้รสชาติสดชื่น ดื่มง่าย รสสัมผัสละมุนละไมชวนหลงใหล",
+  b:["Lager: เบียร์ที่มีรสชาติสะอาด สดชื่น และดื่มง่าย","Yok Sod Lager: โดดเด่นด้วยกลิ่นหอมของใบเตยและมะพร้าวสด ผสานเอกลักษณ์ของขนมไทยเข้ากับเบียร์ลาเกอร์ได้อย่างลงตัว"]}
+};
+var DATA=[
+ {title:"IPA",items:[
+  ["Thai Tea","6.6","IPA","ipa",5800],
+  ["Hyperboost","7.1","West Coast IPA","ipa",5800],
+  ["All Eyes On Me","6.3","Hazy IPA","ipa",5800]]},
+ {title:"Lager",items:[
+  ["12 Plato Lager","5.0","Lager","lager",5300],
+  ["Yok Sod","5.0","Lager","lager",5300],
+  ["Queen Bee","5.0","Lager","lager",5300],
+  ["Festbier","5.0","Lager","lager",5300]]},
+ {title:"Weizen",items:[
+  ["12 Plato Weizen","5.0","Weizen","lager",5300],
+  ["Yusuke","5.0","Weizen","lager",5300]]}
+];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function descHtml(name){
+  var d=DESC[name]; if(!d) return "";
+  var h='<div class="desc"><p>'+esc(d.p)+'</p>';
+  if(d.b){h+='<h4>จุดเด่นของสไตล์</h4><ul>'+d.b.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';}
+  return h+'</div>';
+}
+function render(){
+  var n=1,h="";
+  DATA.forEach(function(s){
+    h+='<section class="sec"><h2 class="sec-head">'+esc(s.title)+'</h2><ul class="list">';
+    s.items.forEach(function(it){
+      h+='<li class="row"><span class="no c-'+it[3]+'">'+n+'</span>'+
+         '<span class="name">'+esc(it[0])+(DESC[it[0]]&&DESC[it[0]].th?' <span class="th-name">('+esc(DESC[it[0]].th)+')</span>':'')+'</span>'+
+         '<span class="price">'+it[4].toLocaleString("en-US")+'<small>.-</small></span>'+
+         '<span class="det"><span class="tag c-'+it[3]+'">'+esc(it[2])+'</span><span class="abv">ABV '+esc(it[1])+'%</span></span>'+descHtml(it[0])+'</li>';
+      n++;
+    });
+    h+='</ul></section>';
+  });
+  document.getElementById("menu").innerHTML=h;
+}
+render();
+document.getElementById("copy-tel").addEventListener("click",function(e){
+  var b=e.currentTarget,t=document.getElementById("tel").textContent;
+  function done(){b.textContent="คัดลอกแล้ว";setTimeout(function(){b.textContent="คัดลอก"},1600)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById("tel"));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="เลือกแล้ว กดคัดลอก"}
+  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(err){fallback()}
+});
+</script>
