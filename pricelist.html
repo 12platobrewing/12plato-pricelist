@@ -112,6 +112,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .fn{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
 .desc{grid-column:2 / 4;font-size:14px;line-height:1.65;margin:6px 0 0;min-width:0}
 .desc p{margin:0}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:0 0 8px;font-size:13.5px}
+.spec dt{font-family:var(--font-board);font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.spec dd{margin:0;min-width:0}
 .desc h4{font-family:var(--font-board);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
 .desc ul{margin:0;padding-left:18px;display:grid;gap:2px}
 .th-name{font-family:var(--font-thai);font-weight:500;font-size:15px;text-transform:none;letter-spacing:0}
@@ -209,6 +212,7 @@ var DESC={
   b:["IPA : เบียร์ที่โดดเด่นด้วยคาแรกเตอร์ของฮ็อป ซึ่งให้กลิ่นหอมและรสขมเป็นเอกลักษณ์","Thai Tea IPA: ผสานกลิ่นหอมของชาไทยเข้ากับ IPA พร้อม Lactose ที่ช่วยเพิ่มเนื้อสัมผัส Creamy นุ่มละมุน สร้างความแตกต่างจาก IPA ทั่วไป"]},
  "Hyperboost":{p:"เป็นเวสต์โคสต์ ไอพีเอ ที่ยกระดับความเข้มข้นไปอีกขั้นด้วยนวัตกรรม hop แบบใหม่ Citra & Simcoe Hyperboost อัดแน่นด้วยกลิ่นรสแนว citrus และ pine สไตล์คลาสสิก มอบรสชาติที่สะอาด คมชัด และขมปลายแบบฉบับเวสต์โคสต์แท้ๆ"},
  "All Eyes On Me":{p:"เป็น Hazy IPA ที่โดดเด่นด้วยเนื้อสัมผัสขุ่นเนียนนุ่มละมุนจากโอ๊ตในสัดส่วน 20% ผสานเข้ากับฮอปส์ตัวชูโรงอย่าง Dolcita ที่รรให้กลิ่นรสสไตล์ Pina Colada หอมกลิ่นมะพร้าวชัดเจน เคล้าด้วยความหวานฉ่ำของพีชและผลไม้เมืองร้อน มอบประสบการณ์การดื่มที่สดชื่น ละมุนลิ้น และหอมฟุ้งในทุกจิบ"},
+ "Stereo Fluid":{meta:[["Brand","Eight Days A Week Brewing"],["Brewed at","12 Plato Brewing"],["Dry Hopped","Cryo Citra, Cryo Simcoe, Quantum Brite Krush"]],p:"เปิดมิติเสียงและรสชาติให้คมชัดขั้นสุดกับ Bright IPA ระดับ 6.7% ABV โดดเด่นด้วยเทคนิค Dry Hopped จาก Cryo Citra, Cryo Simcoe และ Quantum Brite Krush ให้กลิ่นหอมฟรุตตี้ซิตรัสและผลไม้เมืองร้อนพุ่งกระจาย สดชื่น ปรืดโปร่ง รสสัมผัสคมชัดและคลีนสมชื่อ คนต้มหมายเลข 8"},
  "Yok Sod":{th:"หยกสด",p:"ความลงตัวสุดคลาสสิกของเบียร์ลาเกอร์ รังสรรค์ด้วยน้ำสกัดใบเตยหอมนวลและน้ำมะพร้าวสด ถอดรหัสรสสัมผัสหอมนุ่มกลมกล่อมจาก “ขนมเปียกปูนมะพร้าวอ่อน” ให้รสชาติสดชื่น ดื่มง่าย รสสัมผัสละมุนละไมชวนหลงใหล",
   b:["Lager: เบียร์ที่มีรสชาติสะอาด สดชื่น และดื่มง่าย","Yok Sod Lager: โดดเด่นด้วยกลิ่นหอมของใบเตยและมะพร้าวสด ผสานเอกลักษณ์ของขนมไทยเข้ากับเบียร์ลาเกอร์ได้อย่างลงตัว"]}
 };
@@ -216,7 +220,8 @@ var DATA=[
  {title:"IPA",items:[
   ["Thai Tea","6.6","IPA","ipa",5800],
   ["Hyperboost","7.1","West Coast IPA","ipa",5800],
-  ["All Eyes On Me","6.3","Hazy IPA","ipa",5800]]},
+  ["All Eyes On Me","6.3","Hazy IPA","ipa",5800],
+  ["Stereo Fluid","6.7","Bright IPA","ipa","xx"]]},
  {title:"Lager",items:[
   ["12 Plato Lager","5.0","Lager","lager",5300],
   ["Yok Sod","5.0","Lager","lager",5300],
@@ -229,7 +234,9 @@ var DATA=[
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function descHtml(name){
   var d=DESC[name]; if(!d) return "";
-  var h='<div class="desc"><p>'+esc(d.p)+'</p>';
+  var h='<div class="desc">';
+  if(d.meta){h+='<dl class="spec">'+d.meta.map(function(m){return '<dt>'+esc(m[0])+'</dt><dd>'+esc(m[1])+'</dd>'}).join('')+'</dl>';}
+  h+='<p>'+esc(d.p)+'</p>';
   if(d.b){h+='<h4>จุดเด่นของสไตล์</h4><ul>'+d.b.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';}
   return h+'</div>';
 }
@@ -240,7 +247,7 @@ function render(){
     s.items.forEach(function(it){
       h+='<li class="row"><span class="no c-'+it[3]+'">'+n+'</span>'+
          '<span class="name">'+esc(it[0])+(DESC[it[0]]&&DESC[it[0]].th?' <span class="th-name">('+esc(DESC[it[0]].th)+')</span>':'')+'</span>'+
-         '<span class="price">'+it[4].toLocaleString("en-US")+'<small>.-</small></span>'+
+         '<span class="price">'+(typeof it[4]==="number"?it[4].toLocaleString("en-US"):esc(it[4]))+'<small>.-</small></span>'+
          '<span class="det"><span class="tag c-'+it[3]+'">'+esc(it[2])+'</span><span class="abv">ABV '+esc(it[1])+'%</span></span>'+descHtml(it[0])+'</li>';
       n++;
     });
